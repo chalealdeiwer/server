@@ -27,5 +27,10 @@ const UsuarioSchema= Schema({
         type:Boolean,
         default:false
     }
+
 })
+UsuarioSchema.methods.toJSON=function(){
+    const {contraseña, __v, ...varUsuario}=this.to.Object()
+    return varUsuario
+}
 module.exports=model('Usuario',UsuarioSchema)
